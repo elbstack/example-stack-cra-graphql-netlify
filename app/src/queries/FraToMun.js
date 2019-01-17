@@ -1,6 +1,6 @@
+import gql from "graphql-tag";
 
-const query = () =>
-  `{
+export const FraToMun = () => gql`{
     routing(from: 8002549, to: 8000105) {
       parts {
         from {
@@ -31,5 +31,3 @@ const query = () =>
       }
     }
   }`
-
-export default query;

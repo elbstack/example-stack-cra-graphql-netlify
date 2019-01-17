@@ -1,62 +1,37 @@
 import React, { Component } from 'react';
 import ApolloClient from "apollo-boost";
-import gql from "graphql-tag";
+import { FraToMun } from '../queries/FraToMun';
 
 const client = new ApolloClient({
-  uri: "https://bahnql.herokuapp.com/graphql"
+  uri: "/graphql"
 });
 
 class TrainViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      queryResult: {},
+      queryResult: null,
     }
   }
 
   componentWillMount = () => {
     client
       .query({
-        query: gql`{
-          routing(from: 8002549, to: 8000105) {
-            parts {
-              from {
-                name
-              }
-              to {
-                name
-              }
-              delay
-              product {
-                name
-              }
-              direction
-              departingTrack {
-                platform
-                number
-                length
-                height
-                name
-              }
-              arrivingTrack {
-                platform
-                number
-                length
-                height
-                name
-              }
-            }
-          }
-        }`
-      
+        query: FraToMun()
       })
-      .then(result => console.log(result));
+      .then(result => result.data).then(queryResult => this.setState({ ...this.state, queryResult }));
   }
 
   render() {
     return (
       <div className="App">
-      <h2>Hi</h2>
+        <h2>Hi</h2>
+        {this.state.queryResult && this.state.queryResult.routing[0].parts.map(route => <div className="mb-4" key={route.from.name + 'to' + route.to.name}>
+          <p>{route.from.name} to {route.to.name}</p>
+          <p>with {route.product.name} </p>
+          <p>Departure: {route.departingTrack.name}</p>
+          <p>Arrival: {route.arrivingTrack.name}</p>
+        </div>)}
       </div>
     );
   }
