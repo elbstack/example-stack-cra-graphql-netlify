@@ -3,7 +3,7 @@ import ApolloClient from "apollo-boost";
 import { FraToMun } from '../queries/FraToMun';
 
 const client = new ApolloClient({
-  uri: process.env.GRAPHQL_ENDPOINT,
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
 });
 
 class TrainViewer extends Component {
