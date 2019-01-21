@@ -24,14 +24,16 @@ class TrainViewer extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h2>Hi</h2>
+      <div className="mb-4 border-blue border-b-4">
+      <div className="ml-4 pl-4 border-l-2 border-blue-light">
+        <p className="text-2xl mb-2">Train Viewer</p>
         {this.state.queryResult && this.state.queryResult.routing[0].parts.map(route => <div className="mb-4" key={route.from.name + 'to' + route.to.name}>
           <p>{route.from.name} to {route.to.name}</p>
           <p>with {route.product.name} </p>
           <p>Departure: {route.departingTrack.name}</p>
           <p>Arrival: {route.arrivingTrack.name}</p>
         </div>)}
+      </div>
       </div>
     );
   }
