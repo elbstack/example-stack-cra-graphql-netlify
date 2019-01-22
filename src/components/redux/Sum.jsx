@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Sum extends Component {
   render() {
-    return (
-      <p className="text-2xl mb-2">Sum Clicks: {this.props.sum}</p>
-    );
+    return <p className="text-2xl mb-2">Sum Clicks: {this.props.sum}</p>;
   }
 }
 

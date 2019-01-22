@@ -5,7 +5,7 @@ const API_ENDPOINT =
 
 exports.handler = async (event, context) => {
   const message = event.queryStringParameters.msg || "Hello World";
-  return fetch(API_ENDPOINT+`?value1=${message}`)
+  return fetch(API_ENDPOINT + `?value1=${message}`)
     .then(data => ({
       statusCode: 200,
       body: `fired`

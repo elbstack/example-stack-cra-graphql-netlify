@@ -1,6 +1,7 @@
 import gql from "graphql-tag";
 
-export const FraToMun = () => gql`{
+export const FraToMun = () => gql`
+  {
     routing(from: 8002549, to: 8000105) {
       parts {
         from {
@@ -30,4 +31,5 @@ export const FraToMun = () => gql`{
         }
       }
     }
-  }`
+  }
+`;
