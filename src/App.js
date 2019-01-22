@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TrainViewer from './components/TrainViewer';
 import LambdaCaller from './components/LambdaCaller';
+import ReduxCounter from './components/ReduxCounter';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
           <h1 className="mb-4 p-4 border-b-4 border-blue">Demo App</h1>
           <TrainViewer/>
           <LambdaCaller/>
+          <ReduxCounter/>
         </div>
       </div >
     );
