@@ -6,13 +6,13 @@ class Counter extends Component {
     return (
       <p className="text-2xl mb-2">
         <span
-          className="m-4 p-1 bg-blue select-none"
+          className="m-4 p-1 bg-blue select-none cursor-pointer"
           onClick={this.props.increment}
         >
           +
         </span>
         <span
-          className="m-4 p-1 bg-blue select-none"
+          className="m-4 p-1 bg-blue select-none cursor-pointer"
           onClick={this.props.decrement}
         >
           -
